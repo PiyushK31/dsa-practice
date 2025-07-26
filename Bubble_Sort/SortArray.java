@@ -9,6 +9,8 @@ public class SortArray {
 
         // n-1 iteration:-
         for (int i = 0; i < n - 1; i++) {
+            // has any swaping heppend:-
+            boolean flag = false;
             for (int j = 0; j < n - i - 1; j++) {
 
                 if (a[j] > a[j + 1]) {
@@ -16,7 +18,11 @@ public class SortArray {
                     int temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
+                    flag = true; // some swap has happned!
                 }
+            }
+            if (!flag) {
+                return;
             }
         }
     }
@@ -36,7 +42,7 @@ public class SortArray {
 
         // Now sort the array:-
         Bubble_Sort(a);
-        System.out.print("the sorted array is:-");
+        System.out.print("the sorted array is:");
 
         for (int i : a) {
             System.out.print(i + " ");
