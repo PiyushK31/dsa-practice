@@ -1,6 +1,6 @@
 package Linked_List;
 
-public class AtBeginning {
+public class AtAny {
     public static class Node {
         int data;
         Node next;
@@ -35,8 +35,22 @@ public class AtBeginning {
                 tail = temp;
             }
         }
+        void insert(int idx , int val){
+            Node t = new Node(val);
+            Node temp = head;
 
-        // Display linked list
+            if(idx == size()){
+                insertAtEnd(val);
+                return;
+            }
+            for(int i=1 ; i<= idx-1 ; i++){
+                temp = temp.next;
+            }
+            t.next = temp.next;
+            temp.next = t;
+        }
+
+         // Display linked list
         void display() {
             Node temp = head;
             while (temp != null) {
@@ -44,6 +58,15 @@ public class AtBeginning {
                 temp = temp.next;
             }
             System.out.println();
+        }
+        int size() {
+            int count = 0;
+            Node temp = head;
+            while (temp != null) {
+                count++;
+                temp = temp.next;
+            }
+            return count;
         }
     }
 
@@ -57,5 +80,9 @@ public class AtBeginning {
         l1.display();            // Output: 6 2 5
         l1.insertAtEnd(9);
         l1.display();   //output: 6 2 5 9
+        l1.insert(1, 6);
+        l1.display();
+        l1.insert(4, 16);
+        l1.display();
     }
 }
