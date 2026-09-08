@@ -1,0 +1,63 @@
+package Quick_Sort;
+
+public class Sort {
+
+    public static void DisplayArr(int []arr){
+        for(int val : arr){
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
+
+    public static void swap(int []arr , int x , int y){
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
+    public static int partition(int []arr , int st , int end){
+        int pivot = arr[st];
+        int cnt = 0;
+
+        // count how many numbers <= pivot
+        for(int i = st+1; i <= end; i++){
+            if(arr[i] <= pivot) cnt++;
+        }
+
+        // place pivot at correct index
+        int pivotIdx = st + cnt;
+        swap(arr, st, pivotIdx);
+
+        int i = st, j = end;
+        while(i < pivotIdx && j > pivotIdx){
+            while(arr[i] <= pivot) i++;
+            while(arr[j] > pivot) j--;
+
+            if(i < pivotIdx && j > pivotIdx){
+                swap(arr, i, j);
+                i++;
+                j--;
+            }
+        }
+
+        return pivotIdx;
+    }
+
+    public static void quickSort(int []arr , int st , int end ){
+        if(st >= end) return;
+        int pi = partition(arr, st, end);
+        quickSort(arr, st, pi-1);
+        quickSort(arr, pi+1, end);
+    }
+
+    public static void main(String args[]){
+        int arr[] = {6, 3, 1, 5, 4};
+        System.out.println("Array before sorting:");
+        DisplayArr(arr);
+
+        quickSort(arr, 0, arr.length-1);
+
+        System.out.println("Array after sorting:");
+        DisplayArr(arr);
+    }
+}
