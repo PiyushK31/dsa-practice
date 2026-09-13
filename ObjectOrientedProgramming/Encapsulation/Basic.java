@@ -1,5 +1,7 @@
 package ObjectOrientedProgramming.Encapsulation;
-/** */
+/**
+ * This Program demonstrate the concept of Encapsulation but not a Strong Encapsulation!
+ */
 class Animal{
 
     String name;
