@@ -1,5 +1,5 @@
 package ObjectOrientedProgramming.Encapsulation;
-
+/** */
 class Animal{
 
     String name;
