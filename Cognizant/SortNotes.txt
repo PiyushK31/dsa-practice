@@ -1,0 +1,144 @@
+java  -> strong oops but not pure opps
+opss(Pillers) -> inharitance , polimorphysim , Abstraction  , Encapsulatation 
+---------------------------------------------------------------------------------------------------
+class -> blueprint , templet  --> obj
+obj  -> instance of a class
+methode -> define the work the obj will do
+----------------------------------------------------------------------------------------------------
+Constrator -> method inilized obj!
+Type -> default , no args , paramatrize
+
+1.default:-
+class Test{
+    //when obj is created constractor will be called
+    //default constractor!
+    main(){
+        Test obj = new Test();
+    }
+}
+
+2.no args:-
+class Test{
+    //constractor no args
+    Public Test(){
+        //code !
+    }
+}
+
+3.paramatrize:-
+class Test{
+    public Test(){
+        //instance varabile!
+        int n;
+        void fun(int num){
+            n = num;
+            sout(n);
+        }
+    }
+    main(){
+        Test obj = new Test(12);
+    }
+}
+---------------------------------------------------------------------------------------
+relation b/w classes:- HAS-A-relation , USE-A-relation , IS-A-relation(inharitance):-
+1.association:- one class can refer to onother class or data member (types:aggragtion-weak relation , composition:-strong relation)
+2.Dependancy:- one class can use another to perform a spasific taks called USE-A-RELATIONSHIP
+3.inharitance:- subclass inharit the prop of super class 
+achive by:- extends for class and implements for Interface!
+Type OF Is-A-RELATIONSHIP:-
+
+1.singlelevel:- one parent one child
+public Animal{ -> parent class
+    public Dog extends Animal{ -> child class
+
+    }
+}
+
+2.multilevel:- one parent one child and one grandchild
+class Animal{ -> Parent class
+    class Dog extends Animal{ -> child parent
+
+    }
+    class puppy extends Dog{ -> child grandchild
+
+    }
+}
+
+3.hierarchical:- One parent ->many childrend (ex:- Animal-> cat , dog )
+Class Animal{
+    Class Dog extands Animal(){
+
+    }
+    class cat extends Animal(){
+
+    }
+}
+
+4.mutliple:- multiple parent -> single child (this is not posible in java)
+(but we can achhive it by useing Interface)
+5.Hybride:- combanation of more then two types of inharitance!
+(not possible in java but we can acchive it by using Interface!)
+-------------------------------------------------------------------------------------------------------------------------------
+polimorphysim:-one thig can have many form(same fun() can perform many taks):-
+ex:- Sound() -> bark() , mewo() , moo() etcc....
+Type:-1.compile-time-polimorphysim:- which is also called early , static binding(method overlogind):
+ex:- 
+Class Anmal{
+    void dog(){
+        sout();
+    }
+    void dog(String name){
+        sout(name);
+    }
+    main(){
+        Animal obj = new Dog(); ----> the first fun()
+        Animal obj = new Dog("Buzo"); ----> the second fun();
+    }
+}
+
+2.Run-Time-Polimorphysim:-which is also called dynimic binding or Method Ovreriding:-
+ex:-
+class {
+}
+class Animal{
+    void fun(){<----------<--|
+    }                        |
+}                            | Ovreriding
+class dog{
+    @Overriding                   |
+    void fun(){              |
+        //taks<----<-----<---|
+    }                        |
+}                            |
+main(){                      |
+    Animal a = new Dog();    |
+    a.fun();----->------->---|
+}
+----------------------------------------------------------------------------------------------------------------------
+Abstraction:-Hide the unnessary thing and shwo the imp parts
+ex:-[UI] --> show 
+    [backed] ---> Hide
+Abstraction class ->  Abstract Class Animal{}
+Abstract method  -> Abstract fun(){ }
+Abstract Interface -> use -> implements , Abstract keywords!
+------------------------------------------------------------------------------------------------------------------------
+Interface:- blueprint of class that contain only method signater!
+acchive:- 
+interface Api{
+    void http();
+}
+class Res implements Api{
+    void http(){
+        //code !
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+Encapsulatation:-encapsulat the data or method so that can be safe and optimized!
+eg:-Bankig application:-
+class Bank{
+    private String accountHolder;
+    private double balance;
+    getter and seter fun(){to access it buy using this keyword}
+}
+we have to use private or procted access modifiers and getter and sheter method!
+------------------------------------------------------------------------------------------------------------------------------------
